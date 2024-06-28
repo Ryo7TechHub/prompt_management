@@ -1,0 +1,2 @@
+# prompt_management
+プロンプトを管理するChrome拡張機能

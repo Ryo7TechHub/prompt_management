@@ -1,0 +1,316 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    margin: 0;
+    background-color: #f0f2f5;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 540px;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+}
+
+.button-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-top;
+    margin-right: 5px;
+}
+
+.notification-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.edit-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.search-box {
+    width: 100%;
+    padding: 12px 12px 12px 35px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3498db;
+}
+
+.prompt-list {
+    max-height: 330px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.prompt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.prompt-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prompt-content {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #2c3e50;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.edit-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #95a5a6;
+    transition: color 0.3s ease;
+    padding: 5px;
+}
+
+.edit-button:hover {
+    color: #3498db;
+}
+
+.no-match {
+    display: none;
+    text-align: center;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.add-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.add-button:hover {
+    background: #2980b9;
+}
+
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    width: 80%;
+    max-width: 380px;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content div {
+    margin-bottom: 20px;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.popup-content input,
+.popup-content textarea {
+    width: 95%;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.popup-content input:focus,
+.popup-content textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.popup-content textarea {
+    resize: none;
+}
+
+.save-button,
+.delete-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.save-button {
+    background: #3498db;
+    color: white;
+}
+
+.save-button:hover {
+    background: #2980b9;
+}
+
+.delete-button {
+    background: #e74c3c;
+    color: white;
+}
+
+.delete-button:hover {
+    background: #c0392b;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #95a5a6;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #2c3e50;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 500;
+}
+
+.clipboard-notification {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #66FFFF;
+    color: #111111;
+    padding: 12px 24px;
+    border-radius: 6px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+    margin-right: 8px;
+}
+
+.close-notification {
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.error-message {
+    color: #e74c3c;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* スクロールバーのスタイリング */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロンプト管理</title>
+    <link rel="stylesheet" href="src/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="src/jquery-3.6.0.min.js"></script>
+    <script src="src/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>プロンプト管理</h1>
+        <div class="search-container">
+            <img src="images/search-box.svg" class="search-icon" alt="検索アイコン">
+            <input type="text" id="search-box" class="search-box" placeholder="検索">
+        </div>
+        <ul id="sortable" class="prompt-list">
+            <!-- Dynamic content goes here -->
+        </ul>
+        <div id="no-match" class="no-match">一致するものはありません。</div>
+        <div class="button-container">
+            <button class="add-button" id="open-popup">
+                <img src="images/plus.svg" class="button-icon" alt="追加アイコン"> 追加
+            </button>
+        </div>
+    </div>
+
+    <!-- Popup Form -->
+    <div id="popup-form" class="popup-form">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <form id="prompt-form">
+                <div>
+                    <label for="title">タイトル</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div>
+                    <label for="note">メモ</label>
+                    <textarea id="note" name="note" rows="4"></textarea>
+                </div>
+                <div>
+                    <label for="prompt">プロンプト</label>
+                    <textarea id="prompt" name="prompt" rows="10"></textarea>
+                </div>
+                <div id="error-message" class="error-message"></div>
+                <div class="button-group">
+                    <button type="submit" class="save-button">保存</button>
+                    <button type="button" class="delete-button" id="delete-button">削除</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Background Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Clipboard Notification -->
+    <div id="clipboard-notification" class="clipboard-notification" style="display: none;">
+        <img src="images/circle-info.svg" class="notification-icon" alt="通知アイコン"> コピー
+        <span class="close-notification">&times;</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
